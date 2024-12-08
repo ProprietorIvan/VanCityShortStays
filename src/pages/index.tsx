@@ -4,6 +4,7 @@ import ComparisonSection from '@/components/ComparisonSection';
 import StepsSection from '@/components/StepsSection';
 import Contact from "@/components/Contact";
 import FAQ from "@/components/FAQ";
+import FeaturesSection from "@/components/Features";
 
 const Button = ({
   children,
@@ -188,6 +189,7 @@ const Home = () => {
       <ComparisonSection />
       <StepsSection />
       <Contact />
+      <FeaturesSection />
       <FAQ />
     </div>
   );

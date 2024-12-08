@@ -1,81 +1,103 @@
 import React from 'react';
-import { Facebook, Twitter, Linkedin } from 'lucide-react';
+import { Instagram, Facebook, Phone, Mail, MapPin } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <div className="relative mt-16">
-      <footer className="bg-gradient-to-b from-gray-900/95 to-black backdrop-blur-sm text-white py-12 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* We are here to help Section */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">
-              We are here to help
-            </h3>
-            <div className="h-1 w-12 bg-orange-600 mb-4"></div>
-            <p className="text-gray-300">
-              If you do not see the service you need, contact us. At A-Z Handyman, no task is too big or small—we are ready to take on new challenges and get the job done right.
+    <footer className="bg-black text-white">
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+          {/* Brand Section */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold">Vancouver Stay</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Experience luxury living in Vancouver&apos;s finest neighborhoods. Our curated collection 
+              of premium properties offers the perfect blend of comfort and sophistication.
             </p>
+            <div className="flex space-x-4 pt-4">
+              <a href="#" className="hover:text-gray-400 transition-colors">
+                <Instagram size={20} />
+              </a>
+              <a href="#" className="hover:text-gray-400 transition-colors">
+                <Facebook size={20} />
+              </a>
+            </div>
           </div>
 
-          {/* Useful Links Section */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">
-              USEFUL <span className="text-yellow-500">LINKS</span>
-            </h3>
-            <div className="h-1 w-12 bg-orange-600 mb-4"></div>
-            <ul className="space-y-2 text-gray-300">
-              <li>About Us</li>
-              <li>Services</li>
-              <li>Contact</li>
+          {/* Quick Links */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold">Explore</h3>
+            <ul className="space-y-3 text-gray-400">
+              <li>
+                <a href="/properties" className="hover:text-white transition-colors">Our Properties</a>
+              </li>
+              <li>
+                <a href="/locations" className="hover:text-white transition-colors">Neighborhoods</a>
+              </li>
+              <li>
+                <a href="/about" className="hover:text-white transition-colors">About Us</a>
+              </li>
+              <li>
+                <a href="/partner" className="hover:text-white transition-colors">Partner With Us</a>
+              </li>
             </ul>
           </div>
 
-          {/* Opening Hours Section */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">
-              OPENING <span className="text-yellow-500">HOURS</span>
-            </h3>
-            <div className="h-1 w-12 bg-orange-600 mb-4"></div>
-            <p className="text-gray-300">
-              Open 24 hours a day, 7 days a week!
-            </p>
+          {/* Contact Information */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold">Contact</h3>
+            <ul className="space-y-3 text-gray-400">
+              <li className="flex items-center space-x-3">
+                <Phone size={18} />
+                <span>+1 (604) 555-0123</span>
+              </li>
+              <li className="flex items-center space-x-3">
+                <Mail size={18} />
+                <span>info@vancouverstay.com</span>
+              </li>
+              <li className="flex items-center space-x-3">
+                <MapPin size={18} />
+                <span>Downtown Vancouver, BC</span>
+              </li>
+            </ul>
           </div>
 
-          {/* Contact Here Section */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">
-              CONTACT <span className="text-yellow-500">HERE</span>
-            </h3>
-            <div className="h-1 w-12 bg-orange-600 mb-4"></div>
-            <div className="text-gray-300 space-y-2">
-              <p>Address: 1217 Howe St. Vancouver, BC V6Z 1R3</p>
-              <p>Phone: +1 778-653-4862</p>
-              <p>Email: info@azhandyman.ca</p>
-              <div className="flex space-x-4 mt-4">
-                <div className="p-2 bg-neutral-900 hover:bg-neutral-800 cursor-pointer">
-                  <Facebook size={20} />
-                </div>
-                <div className="p-2 bg-neutral-900 hover:bg-neutral-800 cursor-pointer">
-                  <Twitter size={20} />
-                </div>
-                <div className="p-2 bg-neutral-900 hover:bg-neutral-800 cursor-pointer">
-                  <Linkedin size={20} />
-                </div>
-              </div>
+          {/* Newsletter */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold">Stay Updated</h3>
+            <p className="text-gray-400 text-sm">
+              Subscribe to receive updates about new properties and exclusive offers.
+            </p>
+            <div className="flex flex-col space-y-3">
+              <input 
+                type="email" 
+                placeholder="Your email address"
+                className="bg-white/10 px-4 py-2 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/20"
+              />
+              <button className="bg-white text-black px-4 py-2 rounded-lg hover:bg-white/90 transition-colors">
+                Subscribe
+              </button>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="max-w-7xl mx-auto mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
-          <p>© {new Date().getFullYear()}. ALL RIGHTS RESERVED</p>
-          <div className="flex space-x-8 mt-4 md:mt-0">
-            <a href="#" className="hover:text-white">PRIVACY POLICY</a>
-            <a href="#" className="hover:text-white">TERMS & CONDITION</a>
+        <div className="mt-16 pt-8 border-t border-white/10">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-gray-400 text-sm">
+              © {new Date().getFullYear()} Vancouver Stay. All rights reserved.
+            </p>
+            <div className="flex space-x-8">
+              <a href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">
+                Privacy Policy
+              </a>
+              <a href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">
+                Terms of Service
+              </a>
+            </div>
           </div>
         </div>
-      </footer>
-    </div>
+      </div>
+    </footer>
   );
 };
 

@@ -1,79 +1,71 @@
-
 import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link'; // Importing Link for proper navigation
 
 const StepsSection = () => {
   const metrics = [
     {
-      value: "2200+",
-      label: "HAPPY CLIENTS"
+      value: "500+",
+      label: "HAPPY GUESTS"
     },
     {
-      value: "1000+",
-      label: "PROJECTS COMPLETED"
+      value: "50+",
+      label: "LUXURY PROPERTIES"
     },
     {
-      value: "4.8",
-      label: "AVERAGE RATINGS"
+      value: "4.9",
+      label: "GUEST RATING"
     },
     {
-      value: "15",
-      label: "QUALIFIED STAFS"
+      value: "97%",
+      label: "BOOKING RATE"
     }
   ];
 
-  const projects = [
+  const featuredProperties = [
     {
       id: 1,
-      imgUrl: "https://azhandyman.ca/wp-content/uploads/2022/07/renovation-services-2.jpg",
-      alt: "Home renovation transformation"
+      name: "Homer Street Suite",
+      location: "Downtown Vancouver",
+      image: "/photos/homer/HomerLaunder13.jpg",
+      type: "Modern Downtown Living",
+      href: "/homerproperty" // Updated to match the page filename
     },
     {
       id: 2,
-      imgUrl: "https://azhandyman.ca/wp-content/uploads/2022/07/Untitled-21-1.jpg",
-      alt: "Living room renovation"
+      name: "Seymour Residence",
+      location: "Downtown Vancouver",
+      image: "/photos/seymour/1.jpeg",
+      type: "Urban Luxury Suite"
     },
     {
       id: 3,
-      imgUrl: "https://azhandyman.ca/wp-content/uploads/2022/07/BeforeAfter.jpg",
-      alt: "Floor renovation before and after"
-    },
-    {
-      id: 4,
-      imgUrl: "https://azhandyman.ca/wp-content/uploads/2022/07/1-90s-reno-before-and-after-listing-photos.jpg",
-      alt: "Complete home renovation"
-    },
-    {
-      id: 5,
-      imgUrl: "https://azhandyman.ca/wp-content/uploads/2022/07/introTileVR.jpg",
-      alt: "Tile renovation work"
-    },
-    {
-      id: 6,
-      imgUrl: "https://azhandyman.ca/wp-content/uploads/2022/07/house-renovation-cost-scaled-1.jpg",
-      alt: "House renovation project"
+      name: "Howe Street Haven",
+      location: "Downtown Vancouver",
+      image: "/photos/howe/1.jpg",
+      type: "Executive Accommodation"
     }
   ];
 
   return (
     <div className="w-full">
-      <div className="w-full bg-black py-20">      
+      {/* Metrics Section */}
+      <div className="w-full bg-zinc-900 py-24">      
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-2">OUR SUCCESS RATE</h2>
-            <div className="flex items-center justify-center">
-              <div className="h-px w-12 bg-yellow-500"></div>
-              <p className="text-white mx-4">What We have Done</p>
-              <div className="h-px w-12 bg-yellow-500"></div>
-            </div>
+            <h2 className="text-4xl font-bold text-white mb-4">Why Choose Vancouver Stay</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Experience luxury living with our premium short-term rentals in Vancouver&apos;s most desired locations.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             {metrics.map((metric, index) => (
-              <div key={index} className="text-center">
+              <div key={index} className="text-center transform hover:scale-105 transition-transform duration-300">
                 <div className="flex flex-col items-center">
-                  <div className="text-5xl font-bold text-white mb-2">{metric.value}</div>
-                  <div className="h-px w-12 bg-yellow-500 mb-4"></div>
-                  <div className="text-sm text-white tracking-wider">{metric.label}</div>
+                  <div className="text-5xl font-bold text-white mb-3">{metric.value}</div>
+                  <div className="h-px w-12 bg-white/20 mb-3"></div>
+                  <div className="text-sm text-gray-400 tracking-wider">{metric.label}</div>
                 </div>
               </div>
             ))}
@@ -81,31 +73,44 @@ const StepsSection = () => {
         </div>
       </div>
 
-      <section className="py-16 px-5">
+      {/* Featured Properties Section */}
+      <section className="py-24 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-2">RECENT PROJECTS</h2>
-            <div className="flex items-center justify-center">
-              <div className="h-px w-12 bg-yellow-500"></div>
-              <p className="mx-4">A Small Gallery of Us</p>
-              <div className="h-px w-12 bg-yellow-500"></div>
-            </div>
-            <p className="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">
-              Lets see some of our top projects. You can ensure that every project on our platform 
-              is rated and reviewed by their past customers. We cone up with the results.
+            <h2 className="text-4xl font-bold mb-4">Featured Properties</h2>
+            <p className="text-gray-600 max-w-3xl mx-auto text-lg">
+              Discover our handpicked collection of luxury properties, each offering a unique blend 
+              of comfort, style, and prime location in Vancouver&apos;s most coveted neighborhoods.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
-              <div key={project.id} className="group relative overflow-hidden rounded-lg shadow-lg">
-                <img 
-                  src={project.imgUrl}
-                  alt={project.alt}
-                  className="w-full h-64 object-cover transform transition-transform duration-300 group-hover:scale-110"
-                />
-              </div>
+            {featuredProperties.map((property) => (
+              <Link href={property.href || "#"} key={property.id}>
+                <div className="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer">
+                  <div className="relative h-80 w-full">
+                    <Image 
+                      src={property.image}
+                      alt={property.name}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                      <h3 className="text-xl font-semibold mb-1">{property.name}</h3>
+                      <p className="text-sm opacity-90">{property.location}</p>
+                      <p className="text-sm text-gray-300 mt-2">{property.type}</p>
+                    </div>
+                  </div>
+                </div>
+              </Link>
             ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <button className="bg-black text-white px-8 py-3 rounded-full hover:bg-gray-900 transition-colors duration-300">
+              View All Properties
+            </button>
           </div>
         </div>
       </section>

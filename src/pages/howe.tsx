@@ -120,8 +120,8 @@ const HoweProperty = () => {
         </div>
       </header>
 
- {/* Photo Grid */}
-      <div className="relative">
+     {/* Photo Grid */}
+     <div className="relative">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-1 md:gap-2 h-[50vh] md:h-[85vh]">
           {/* Main large image */}
           <div className="col-span-1 md:col-span-2 md:row-span-2 relative">
@@ -134,10 +134,10 @@ const HoweProperty = () => {
             />
           </div>
           
-          {/* Small preview images - show 3x2 grid */}
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-1 md:gap-2 col-span-1 md:col-span-2 h-[50vh] md:h-auto">
-            {images.slice(1, 7).map((image, index) => (
-              <div key={index} className="relative w-full h-[25vh] md:h-[21vh]">
+          {/* Small preview images - show 2x2 grid on mobile */}
+          <div className="grid grid-cols-2 gap-1 md:gap-2 col-span-1 md:col-span-2 h-[25vh] md:h-auto">
+            {images.slice(1, 5).map((image, index) => (
+              <div key={index} className="relative w-full h-full min-h-[120px]">
                 <Image
                   src={image}
                   alt={`Interior view ${index + 1}`}
@@ -158,7 +158,7 @@ const HoweProperty = () => {
           </button>
         </div>
       </div>
-
+      
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4">
         {/* Property Overview */}

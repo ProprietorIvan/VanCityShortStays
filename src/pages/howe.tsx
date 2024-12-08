@@ -11,7 +11,7 @@ const HoweProperty = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const images = Array.from({ length: 23 }, (_, i) => `/photos/howe/{i + 1}.jpg`);
+  const images = Array.from({ length: 17 }, (_, i) => `/photos/howe/${i + 1}.jpg`);
 
   const nearbyRestaurants = [
     { name: "Parlour", cuisine: "Pizza & Cocktails", rating: "4.7", distance: "10 min", price: "$$$" },
@@ -120,9 +120,10 @@ const HoweProperty = () => {
         </div>
       </header>
 
-      {/* Photo Grid */}
+ {/* Photo Grid */}
       <div className="relative">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-1 md:gap-2 h-[50vh] md:h-[85vh]">
+          {/* Main large image */}
           <div className="col-span-1 md:col-span-2 md:row-span-2 relative">
             <Image
               src={images[0]}
@@ -132,10 +133,11 @@ const HoweProperty = () => {
               priority
             />
           </div>
-          {/* Hide additional images on mobile */}
-          <div className="hidden md:grid grid-cols-2 gap-2 col-span-2">
-            {images.slice(1, 5).map((image, index) => (
-              <div key={index} className="relative">
+          
+          {/* Small preview images - show 3x2 grid */}
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-1 md:gap-2 col-span-1 md:col-span-2 h-[50vh] md:h-auto">
+            {images.slice(1, 7).map((image, index) => (
+              <div key={index} className="relative w-full h-[25vh] md:h-[21vh]">
                 <Image
                   src={image}
                   alt={`Interior view ${index + 1}`}
@@ -145,6 +147,7 @@ const HoweProperty = () => {
               </div>
             ))}
           </div>
+          
           <button
             onClick={() => setShowFullGallery(true)}
             className="absolute bottom-4 md:bottom-8 right-4 md:right-8 bg-white/90 backdrop-blur-sm 

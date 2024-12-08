@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link'; // Importing Link for proper navigation
+import Link from 'next/link';
 
 const StepsSection = () => {
   const metrics = [
@@ -29,21 +29,23 @@ const StepsSection = () => {
       location: "Downtown Vancouver",
       image: "/photos/homer/HomerLaunder13.jpg",
       type: "Modern Downtown Living",
-      href: "/homerproperty" // Updated to match the page filename
+      href: "/homerproperty"
     },
     {
       id: 2,
       name: "Seymour Residence",
       location: "Downtown Vancouver",
       image: "/photos/seymour/1.jpeg",
-      type: "Urban Luxury Suite"
+      type: "Urban Luxury Suite",
+      href: "/seymour"
     },
     {
       id: 3,
       name: "Howe Street Haven",
       location: "Downtown Vancouver",
       image: "/photos/howe/1.jpg",
-      type: "Executive Accommodation"
+      type: "Executive Accommodation",
+      href: "howe" // Placeholder link for future property
     }
   ];
 
@@ -86,7 +88,7 @@ const StepsSection = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredProperties.map((property) => (
-              <Link href={property.href || "#"} key={property.id}>
+              <Link href={property.href} key={property.id}>
                 <div className="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer">
                   <div className="relative h-80 w-full">
                     <Image 

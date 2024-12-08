@@ -120,11 +120,12 @@ const HoweProperty = () => {
         </div>
       </header>
 
-     {/* Photo Grid */}
-     <div className="relative">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-1 md:gap-2 h-[50vh] md:h-[85vh]">
+    {/* Photo Grid */}
+    <div className="relative">
+        {/* Desktop Layout */}
+        <div className="hidden md:grid md:grid-cols-3 gap-2 h-[85vh]">
           {/* Main large image */}
-          <div className="col-span-1 md:col-span-2 md:row-span-2 relative">
+          <div className="col-span-2 relative">
             <Image
               src={images[0]}
               alt="Main living space"
@@ -134,10 +135,10 @@ const HoweProperty = () => {
             />
           </div>
           
-          {/* Small preview images - show 2x2 grid on mobile */}
-          <div className="grid grid-cols-2 gap-1 md:gap-2 col-span-1 md:col-span-2 h-[25vh] md:h-auto">
+          {/* Desktop preview images - stacked 2x2 on right */}
+          <div className="grid grid-rows-2 grid-cols-2 gap-2">
             {images.slice(1, 5).map((image, index) => (
-              <div key={index} className="relative w-full h-full min-h-[120px]">
+              <div key={`desktop-${index}`} className="relative">
                 <Image
                   src={image}
                   alt={`Interior view ${index + 1}`}
@@ -147,18 +148,47 @@ const HoweProperty = () => {
               </div>
             ))}
           </div>
-          
-          <button
-            onClick={() => setShowFullGallery(true)}
-            className="absolute bottom-4 md:bottom-8 right-4 md:right-8 bg-white/90 backdrop-blur-sm 
-            px-4 md:px-8 py-2 md:py-4 rounded-full text-sm md:text-base
-            font-medium hover:bg-white transition-all duration-300 transform hover:scale-105 shadow-lg"
-          >
-            View All Photos ({images.length})
-          </button>
         </div>
+
+        {/* Mobile Layout */}
+        <div className="md:hidden">
+          {/* Main large image */}
+          <div className="relative h-[50vh]">
+            <Image
+              src={images[0]}
+              alt="Main living space"
+              fill
+              className="object-cover brightness-105"
+              priority
+            />
+          </div>
+          
+          {/* Mobile preview images - just 2 previews */}
+          <div className="grid grid-cols-2 gap-1 mt-1">
+            {images.slice(1, 3).map((image, index) => (
+              <div key={`mobile-${index}`} className="relative h-[25vh]">
+                <Image
+                  src={image}
+                  alt={`Interior view ${index + 1}`}
+                  fill
+                  className="object-cover brightness-105"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* View All Photos button - works for both layouts */}
+        <button
+          onClick={() => setShowFullGallery(true)}
+          className="absolute bottom-4 md:bottom-8 right-4 md:right-8 bg-white/90 backdrop-blur-sm 
+          px-4 md:px-8 py-2 md:py-4 rounded-full text-sm md:text-base
+          font-medium hover:bg-white transition-all duration-300 transform hover:scale-105 shadow-lg z-10"
+        >
+          View All Photos ({images.length})
+        </button>
       </div>
-      
+
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4">
         {/* Property Overview */}
